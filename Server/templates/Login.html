@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- google sign in? -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Login.css') }}">
+    <title>Login Page</title>
+</head>
+    <body style="background-color: #BEBEF0"> <!--Change this into css page-->
+        <div class="container-fluid">
+            <div class="row">
+                <div class = "col" id = "col1">
+                    <div style="margin: 2rem"></div>
+                    <img src="">
+                </div>
+                <div class="col" id="col2">
+                    <div style="margin: 2rem;">
+                        <div class="card">
+                        <a id="close" type="button" class="btn btn-link text-left" href="{{url_for'login')}}"><h3 style="color: black;"> LOGIN </h3> </a>
+                        <br>
+                        <br>
+                            <form id="loginForm" method="POST">
+                            <div class="form-outline">
+                                <label for="email" style="color: white; font-size: x-small;">Username or Email</label>
+                                <input id="email" name="email" type="email" class="form-control" placeholder="user@gmail.com" required="true"/>
+                                <div class="valid-feedback">Great!</div>
+                                <div class="invalid-feedback">Please provide a valid email/username</div>
+
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
