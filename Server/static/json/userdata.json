@@ -1,0 +1,11 @@
+{
+    "userdata": [
+        {
+            "name": "a",
+            "surname": "a",
+            "username": "admin@admin.com",
+            "email": "admin@admin.com",
+            "password": "password"
+        }
+    ]
+}
