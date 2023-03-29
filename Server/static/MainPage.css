@@ -3,3 +3,11 @@
     height: 15vw;
     object-fit: cover;
 }
+
+.navbar{
+    align-items: center;
+}
+
+.row{
+    margin: 0 !important;
+}

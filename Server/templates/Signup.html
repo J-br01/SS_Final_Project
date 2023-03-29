@@ -2,9 +2,84 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- google sign in? -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='Signup.css') }}">
+    <title>Create a new account</title>
 </head>
-<body>
+    <body>
+    <div class="container-fluid p-0">
+        <div class="bg-image" style="background-image: url('../static/images/mirrorBooks.jpg'); height: 100vh; opacity: 0.8;">
+            <div class="row">
+                <div class="col-3">
+                    <br>
+                    <br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6 ">
+                    <div class="card align-items-center" style="border-radius: 2rem; background-color: #fcfaf5">
+                        <div class="card-body text-black" style="opacity:1;">
+                            <form>
+                                <div class="d-flex  mb-3 pb-0 pt-3">
+                                    <i class="fas fa-solid fa-books fa-2x me-3" style="color:mediumpurple;"></i>
+                                    <span class="h1 fw-bold mb-0" style="font-family: 'Bodoni 72 Oldstyle'; color: mediumpurple;">Judy's Library</span>
+                                </div >
+                                <br>
+                                <h5 class="fw-normal mb-3 pb-3" style="color: black">Create a New Account</h5>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label" for="formLogin">Name</label>
+                                            <input type="name" id="formLogin" class="form-control form-control-lg" placeholder="John" required/>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label" for="formLogin">Surname</label>
+                                            <input type="name" id="formLogin" class="form-control form-control-lg" placeholder="Doe" required/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="formLogin">Username</label>
+                                    <input type="name" id="formLogin" class="form-control form-control-lg" placeholder="john_doe121" required/>
+                                </div>
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="formLogin">Email</label>
+                                    <input type="email" id="formLogin" class="form-control form-control-lg" placeholder="johndoe@gmail.com" required/>
+                                </div>
 
-</body>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label" for="formLogin">Name</label>
+                                            <input type="name" id="formLogin" class="form-control form-control-lg" placeholder="John" required/>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label" for="formLogin"> Repeat Password</label>
+                                            <input type="password" id="formLogin" class="form-control form-control-lg" placeholder="********" required/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pt-1 mb-4">
+                                    <button class="btn btn-outline-light btn-lg btn-block" type="button" style="border-color: mediumpurple; background-color: mediumpurple">Sign Up</button>
+                                </div>
+                                <br>
+                                <p class="mb-5 pb-lg-2" style="color:purple">Already have an account? <a href="{{ url_for('static', filename='Login.html') }}" style="color: mediumpurple;">Log In!</a></p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3"></div>
+            </div>
+        </div>
+    </div>
+    </body>
 </html>
