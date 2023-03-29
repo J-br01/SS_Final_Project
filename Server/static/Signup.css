@@ -2,3 +2,10 @@ body{
     background-color: #BEBEF0
 
 }
+
+.login-message{
+    display: grid;
+    justify-content: end;
+    color: red;
+    font-size: 18px;
+}
