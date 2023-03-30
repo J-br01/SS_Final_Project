@@ -21,9 +21,8 @@ def login():
         validation = checkLogin(request.form['inputEmail'], request.form['inputPassword'])
         if validation:
             return redirect(url_for('home'))
-        else:
-            flash(u'Wrong credentials', category="error")
-            return render_template('login.html', form=request.form)
+        flash(u'Wrong credentials', category="error")
+        return render_template('login.html', form=request.form)
     else:
         return render_template('login.html', form=request.form)
 
@@ -55,9 +54,8 @@ def signUp():
 
             flash('User registered successfully!  Please log in.', category="usercreated")
             return redirect(url_for('login'))
-        else:
-            flash('Password do not match')
-            return render_template('Signup.html', form=request.form)
+        flash('Password do not match')
+        return render_template('Signup.html', form=request.form)
     else:
         return render_template('Signup.html')
 
