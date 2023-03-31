@@ -35,6 +35,24 @@ def login_Post():
 def book():
     return render_template('Book.html')
 
+@app.route('/book', methods=['POST'])
+def addFavourite():
+    users = request.get_json() #Y como sabe la aplicacion que necesito el file userdata.json
+    user_id = users.get('username')
+    items = request.get_json() #misma pregunta de arriba pero con booksdata
+    item_id = items.get('title')
+    with open('favourites.json', 'r') as f:
+        favourites = json.load()
+
+    if not favourites.get(user_id):
+        favourites[user_id] = []
+
+    favourites.append(item_id)
+    with open('favourites.json', 'w') as f:
+        json.dump(favourites, f)
+        flash(u'Added to Favourites!', category="info")
+        #necesito un return? Y que retornaria? nada no?
+
 
 @app.route('/foreign')
 def foreign():
