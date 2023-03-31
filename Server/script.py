@@ -20,11 +20,16 @@ def readJSON(file):
         return json.load(openfile)
 
 def appendJSON(new_data, section, filename):
-    with open(filename, 'r+') as file:
-        file_data = json.load(file)
-        file_data[section].append(new_data)
-        file.seek(0)
-        json.dump(file_data, file, indent=4)
+    path = '../static/json'
+    f_path = os.path.join(path, filename)
+    if os.path.exists(f_path):
+        with open(filename, 'r+') as file:
+            file_data = json.load(file)
+            file_data[section].append(new_data)
+            file.seek(0)
+            json.dump(file_data, file, indent=4)
+    else:
+        return 'Invalid filename'
 
 def createNewUser(name, surname, username, email, password):
     user = createUser(name, surname, username, email, password)
