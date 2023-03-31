@@ -1,0 +1,10 @@
+.dropM{
+    background-color: #BEBEF0;
+    border-bottom:1px solid mediumpurple;
+}
+
+.card-img-top{
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
