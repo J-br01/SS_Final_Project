@@ -16,8 +16,11 @@ def createUser(name, surname, username, email, password):
     return user
 
 def readJSON(file):
-    with open(file, 'r') as openfile:
-        return json.load(openfile)
+    path = '../static/json'
+    f_path = os.path.join(path, file)
+    if os.path.exists(f_path):
+        with open(file, 'r') as openfile:
+            return json.load(openfile)
 
 def appendJSON(new_data, section, filename):
     path = '../static/json'

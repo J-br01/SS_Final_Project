@@ -51,11 +51,11 @@ def shoppingCart():
     return render_template('ShoppingCart.html')
 
 
-@app.route('/sign-up', methods=['GET', 'POST'])
+@app.route('/sign-up', methods=['GET'])
 def signUp():
     return render_template('Signup.html')
 
-
+@app.route('/sign-up', methods=['POST'])
 def signup_Post():
     if request.form['password'] == request.form['repeatPassword']:
         createNewUser(request.form['name'], request.form['surname'], request.form['username'],
