@@ -1,0 +1,7 @@
+.book-image{
+    height: 450px;
+    background-image: url("../static/images/paulo.png") ;
+    background-size: 300px;
+    background-repeat: no-repeat;
+    background-position-x: center;
+}

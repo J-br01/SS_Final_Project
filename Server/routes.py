@@ -15,18 +15,19 @@ password = "password"
 def home():
     return render_template('MainPage.html')
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['GET'])
 def login():
-    if request.method == 'POST':
-        validation = checkLogin(request.form['inputEmail'], request.form['inputPassword'])
-        if validation:
-            return redirect(url_for('home'))
-        else:
-            flash(u'Wrong credentials', category="error")
-            return render_template('login.html', form=request.form)
-    else:
-        return render_template('login.html', form=request.form)
+    return render_template('login.html', form=request.form)
 
+
+@app.route('/', methods=['POST'])
+def login_Post():
+    validation = checkLogin(request.form['inputEmail'], request.form['inputPassword'])
+    if validation:
+        return redirect(url_for('home'))
+    else:
+        flash(u'Wrong credentials', category="error")
+        return render_template('login.html', form=request.form)
 
 @app.route('/book')
 def book():
