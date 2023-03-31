@@ -60,4 +60,3 @@ def signUp():
             return render_template('Signup.html', form=request.form)
     else:
         return render_template('Signup.html')
-

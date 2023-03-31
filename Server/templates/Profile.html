@@ -67,103 +67,130 @@
             <div class="col-1 text-center" style="background-color: #BEBEF0">
                 <div class="list-group border-0 rounded-0 text-sm-start min-vh-100 text-center" id="sidebar-nav" style="margin-top:2rem;">
                     <div class="d-flex justify-content-center">
-                        <div class="nav flex-column nav-pills me-3" id="v-pills-tab" aria-orientation="vertical">
-                            <button class="nav-link " id="v-pills-orders-tab" data-bs-toggle="pills" data-bs-target="#v-pills-orders" aria-controls="v-pills-profile" style="width: 100%;border: 0px; background-color: #BEBEF0;">
+                        <div class="nav flex-column nav-pills me-3" id="v-pills-tab" aria-orientation="vertical" rol="tablist">
+                            <button class="nav-link " id="v-pills-orders-tab" data-bs-toggle="pill" data-bs-target="#v-pills-orders" aria-controls="v-pills-profile" style="width: 100%;border: 0px; background-color: #BEBEF0;">
                             <svg fill="#800080" width="64px" height="64px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" stroke="#800080" stroke-width="0.00016"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="m15.66 7-.91-2.68L8.62.85a1.28 1.28 0 0 0-1.24 0L1.25 4.32.34 7a1.24 1.24 0 0 0 .58 1.5l.33.18V11a1.25 1.25 0 0 0 .63 1l5.5 3.11a1.28 1.28 0 0 0 1.24 0l5.5-3.11a1.25 1.25 0 0 0 .63-1V8.68l.33-.18a1.24 1.24 0 0 0 .58-1.5zM10 9.87l-.48-1.28L14 6.13l.44 1.28zM8 1.94 13.46 5 8 8 2.54 5zM1.52 7.41 2 6.13l4.48 2.46L6 9.87zm1 1.95 4.25 2.32.62-1.84v3.87L2.5 11zM13.5 11l-4.88 2.71V9.84l.63 1.84 4.25-2.32z"></path></g></svg>
                             Orders</button>
                             <li><hr class="dropdown-divider"/></li>
 
-                            <button class="nav-link btn-default" id="v-pills-favourite-tab" data-bs-toggle="pills" data-bs-target="#v-pills-favourite" aria-controls="v-pills-profile" style="width: 100%;border: 0px; background-color: #BEBEF0">
+                            <button class="nav-link btn-default" id="v-pills-favourite-tab" data-bs-toggle="pill" data-bs-target="#v-pills-favourite" aria-controls="v-pills-profile" style="width: 100%;border: 0px; background-color: #BEBEF0">
                             <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#800080"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Interface / Heart_01"> <path id="Vector" d="M12 7.69431C10 2.99988 3 3.49988 3 9.49991C3 15.4999 12 20.5001 12 20.5001C12 20.5001 21 15.4999 21 9.49991C21 3.49988 14 2.99988 12 7.69431Z" stroke="#800080" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path> </g> </g></svg>
                             Favourites</button>
                             <li><hr class="dropdown-divider" style="color: purple"/></li>
 
-                            <button class="nav-link btn-default" id="v-pills-profile-tab" data-bs-toggle="pills" data-bs-target="#v-pills-profile" aria-controls="v-pills-profile" style="width: 100%;border: 0px; background-color: #BEBEF0">
+                            <button class="nav-link btn-default" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" aria-controls="v-pills-profile" style="width: 100%;border: 0px; background-color: #BEBEF0">
                             <svg width="64px" height="64px" viewBox="-2.6 -2.6 25.20 25.20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#800080" stroke="#800080"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>profile_round [#1342]</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="Page-1" stroke-width="0.0002" fill="none" fill-rule="evenodd"> <g id="Dribbble-Light-Preview" transform="translate(-140.000000, -2159.000000)" fill="#800080"> <g id="icons" transform="translate(56.000000, 160.000000)"> <path d="M100.562548,2016.99998 L87.4381713,2016.99998 C86.7317804,2016.99998 86.2101535,2016.30298 86.4765813,2015.66198 C87.7127655,2012.69798 90.6169306,2010.99998 93.9998492,2010.99998 C97.3837885,2010.99998 100.287954,2012.69798 101.524138,2015.66198 C101.790566,2016.30298 101.268939,2016.99998 100.562548,2016.99998 M89.9166645,2004.99998 C89.9166645,2002.79398 91.7489936,2000.99998 93.9998492,2000.99998 C96.2517256,2000.99998 98.0830339,2002.79398 98.0830339,2004.99998 C98.0830339,2007.20598 96.2517256,2008.99998 93.9998492,2008.99998 C91.7489936,2008.99998 89.9166645,2007.20598 89.9166645,2004.99998 M103.955674,2016.63598 C103.213556,2013.27698 100.892265,2010.79798 97.837022,2009.67298 C99.4560048,2008.39598 100.400241,2006.33098 100.053171,2004.06998 C99.6509769,2001.44698 97.4235996,1999.34798 94.7348224,1999.04198 C91.0232075,1998.61898 87.8750721,2001.44898 87.8750721,2004.99998 C87.8750721,2006.88998 88.7692896,2008.57398 90.1636971,2009.67298 C87.1074334,2010.79798 84.7871636,2013.27698 84.044024,2016.63598 C83.7745338,2017.85698 84.7789973,2018.99998 86.0539717,2018.99998 L101.945727,2018.99998 C103.221722,2018.99998 104.226185,2017.85698 103.955674,2016.63598" id="profile_round-[#1342]"> </path> </g> </g> </g> </g></svg>
                             Profile</button>
                             <li><hr class="dropdown-divider" style="color: purple"/></li>
 
-                            <button class="nav-link btn-default" id="v-pills-help-tab" data-bs-toggle="pills" data-bs-target="#v-pills-help" aria-controls="v-pills-profile" style="width: 100%;border: 0px; background-color: #BEBEF0">
+                            <button class="nav-link btn-default" id="v-pills-help-tab" data-bs-toggle="pill" data-bs-target="#v-pills-help" aria-controls="v-pills-profile" style="width: 100%;border: 0px; background-color: #BEBEF0">
                             <svg width="64px" height="64px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#800080" stroke-width="0.00016"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g fill="#800080"> <path fill-rule="evenodd" d="M8.197 4.523a1.532 1.532 0 00-1.051.196c-.318.19-.563.49-.687.85a.75.75 0 01-1.418-.49c.239-.69.71-1.274 1.335-1.648a3.032 3.032 0 012.079-.386 3.057 3.057 0 011.829 1.065 3.13 3.13 0 01.716 2c0 .487-.092.905-.275 1.266-.182.36-.431.62-.679.817-.194.156-.41.291-.581.398l-.096.06a2.507 2.507 0 00-.452.34.643.643 0 00-.172.292.75.75 0 01-1.499-.033c0-.163.035-.324.086-.479.08-.243.232-.543.515-.832.239-.243.505-.419.72-.554.044-.029.086-.056.126-.08.169-.106.296-.186.415-.282a.976.976 0 00.279-.323c.059-.117.113-.296.113-.59v-.002a1.63 1.63 0 00-.372-1.041c-.24-.29-.57-.481-.931-.544z" clip-rule="evenodd"></path> <path d="M8 11a1 1 0 100 2h.007a1 1 0 100-2H8z"></path> <path fill-rule="evenodd" d="M0 8a8 8 0 1116 0A8 8 0 010 8zm8-6.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13z" clip-rule="evenodd"></path> </g> </g></svg>
                             Help</button>
                             <li><hr class="dropdown-divider" style="color: purple"/></li>
-
                         </div>
                     </div>
                 </div>
             </div>
 
             <main class="col ps-md-2 pt-2">
-            <div class=" row">
-                <div class="col-10">
-                    <div style="margin: 2rem 4rem 4rem 0;">
-                        <div class="tab-content" id="v-pills-tabContent">
-                            <div class="tab-pane active" id="v-pills-profile" role="tabpanel" aria-labbelledby="v-pills-profile" style="margin-top:30px;">
-                                <p style="font-size:x-large;"><b>Your Account - Profile</b></p>
-                                <form id="profileDetailsForm" name="profileDetailsForm">
-                                    <div class="mb-3 ml-3">
-                                        <img src="../static/images/portrait-g698366343_1280.jpg" alt="Picture" style="width: 10rem; height: 10rem;" class="img-fluid">
-                                        <a class="btn btn-dark" style="background-color: #BEBEF0; opacity: 0.9; margin: 7.5rem 10px 0 10px">Update</a>
-                                    </div>
+                <div class=" row">
+                    <div class="col-10">
+                        <div style="margin: 2rem 4rem 4rem 0;">
+                            <div class="tab-content" id="v-pills-tabContent">
+                                 <!--profile-->
+                                <div class="tab-pane active" id="v-pills-profile" role="tabpanel" aria-labbelledby="v-pills-profile-tab" style="margin-top:30px;">
+                                    <p style="font-size:x-large;"><b>Your Account - Profile</b></p>
+                                    <form id="profileDetailsForm" name="profileDetailsForm">
+                                        <div class="mb-3 ml-3">
+                                            <img src="../static/images/portrait-g698366343_1280.jpg" alt="Picture" style="width: 10rem; height: 10rem;" class="img-fluid">
+                                            <a class="btn btn-dark" style="background-color: #BEBEF0; opacity: 0.9; margin: 7.5rem 10px 0 10px">Update</a>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="mb-3">
+                                                    <label for="name" class="form-label" style="color: purple; font-size: 14px; margin-top: 20px">Name</label>
+                                                    <input type="text" class="form-control" id="name" name="name" value="Nieves" required/>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="mb-3">
+                                                    <label for="surname" class="form-label" style="color: purple; font-size: 14px; margin-top: 20px">Surname</label>
+                                                    <input type="text" class="form-control" id="surnmame" name="surname" value="Arribas" required/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="mb-3">
+                                                    <label for="email" style="color: purple; font-size: 14px; margin-top: 20px">Email Address</label>
+                                                    <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp" value="nieves_arribas@gmail.com" required/>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="mb-3">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="mb-3">
+                                                    <label for="password" class="form-label" style="color: purple; font-size: 14px; margin-top: 20px">Password</label>
+                                                    <input type="password" class="form-control" id="password" name="password" value="password1234"/>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="mb-3">
+                                                    <label for="newPassword" class="form-label" style="color: purple; font-size: 14px; margin-top: 20px">New Password</label>
+                                                    <input type="password" class="form-control" id="NewPassword" name="newPassword"/>
+                                                </div>
+                                            </div>
+                                            <div class="col">
+                                                <div class="mb-3">
+                                                    <label for="repeatNew" class="form-label" style="color: purple; font-size: 14px; margin-top: 20px">Repeat Password</label>
+                                                    <input type="password" class="form-control" id="repeatNew" name="repeatNew"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
                                     <div class="row">
                                         <div class="col">
-                                            <div class="mb-3">
-                                                <label for="name" class="form-label" style="color: purple; font-size: 14px; margin-top: 20px">Name</label>
-                                                <input type="text" class="form-control" id="name" name="name" value="Nieves" required/>
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="mb-3">
-                                                <label for="surname" class="form-label" style="color: purple; font-size: 14px; margin-top: 20px">Surname</label>
-                                                <input type="text" class="form-control" id="surnmame" name="surname" value="Arribas" required/>
-                                            </div>
+                                            <br>
+                                            <a class="btn btn-dark" style="background-color: #BEBEF0; opacity: 0.9;">Reset</a>
+                                            <a class="btn btn-dark" style="background-color: #BEBEF0; opacity: 0.9; margin: 0 2rem 0 0;">Save</a>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="mb-3">
-                                                <label for="email" style="color: purple; font-size: 14px; margin-top: 20px">Email Address</label>
-                                                <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp" value="nieves_arribas@gmail.com" required/>
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="mb-3">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="mb-3">
-                                                <label for="password" class="form-label" style="color: purple; font-size: 14px; margin-top: 20px">Password</label>
-                                                <input type="password" class="form-control" id="password" name="password" value="password1234"/>
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="mb-3">
-                                                <label for="newPassword" class="form-label" style="color: purple; font-size: 14px; margin-top: 20px">New Password</label>
-                                                <input type="password" class="form-control" id="NewPassword" name="newPassword"/>
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="mb-3">
-                                                <label for="repeatNew" class="form-label" style="color: purple; font-size: 14px; margin-top: 20px">Repeat Password</label>
-                                                <input type="password" class="form-control" id="repeatNew" name="repeatNew"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
+                                </div>
+                            </div>
+                            <!--Orders-->
+                            <div class="tab-pane fade" id="v-pills-orders" role="tabpanel" aria-labelledby="v-pills-orders-tab" style="margin-top:30px;">
+                                <p style="font-size:x-large;"><b>Your Orders</b></p>
                                 <div class="row">
                                     <div class="col">
-                                        <br>
-                                        <a class="btn btn-dark" style="background-color: #BEBEF0; opacity: 0.9;">Reset</a>
-                                        <a class="btn btn-dark" style="background-color: #BEBEF0; opacity: 0.9; margin: 0 2rem 0 0;">Save</a>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Favourites-->
+                            <div class="tab-pane fade" id="v-pills-favourites" role="tabpanel" aria-labelledby="v-pills-favourite-tab" style="margin-top:30px;">
+                                <p style="font-size:x-large;"><b>Your Favourites</b></p>
+                                <div class="row">
+                                    <div class="col">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Help-->
+                            <div class="tab-pane fade" id="v-pills-help" role="tabpanel" aria-labelledby="v-pills-help-tab" style="margin-top:30px;">
+                                <p style="font-size:x-large;"><b>Most Frequently asked Questions</b></p>
+                                <div class="row">
+                                    <div class="col">
+
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
             </main>
         </div>
     </div>
@@ -181,6 +208,9 @@
         </div>
     </footer>
 </body>
+
+<!--Started for when a database is created-->
+<!--<script src="{{ url_for('static', filename='Profile.js') }}"></script>-->
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </html>
