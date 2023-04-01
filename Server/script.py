@@ -1,7 +1,6 @@
 from Server import app
 import os
 import json
-import csv
 
 userdata  = os.path.join(app.static_folder, 'json', 'userdata.json')
 booksdata = os.path.join(app.static_folder, 'json', 'booksdata.json')

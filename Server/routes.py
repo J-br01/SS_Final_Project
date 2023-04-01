@@ -1,6 +1,7 @@
-from flask import *
+from flask import render_template, request, redirect, flash, url_for
 from Server import app
-from Server.script import *
+import json
+from Server.script import checkLogin, createNewUser
 import uuid
 
 secret_key = str(uuid.uuid4()).upper()
@@ -36,9 +37,9 @@ def book():
 
 @app.route('/book', methods=['POST'])
 def addFavourite():
-    users = request.get_json() #Y como sabe la aplicacion que necesito el file userdata.json
+    users = request.get_json()
     user_id = users.get('username')
-    items = request.get_json() #misma pregunta de arriba pero con booksdata
+    items = request.get_json()
     item_id = items.get('title')
     with open('favourites.json', 'r') as f:
         favourites = json.load()
@@ -50,7 +51,7 @@ def addFavourite():
     with open('favourites.json', 'w') as f:
         json.dump(favourites, f)
         flash(u'Added to Favourites!', category="info")
-        #necesito un return? Y que retornaria? nada no?
+
 
 
 @app.route('/foreign')
