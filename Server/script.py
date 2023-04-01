@@ -122,7 +122,7 @@ def addFavourite(bookname, author):
 def removeFavourite(bookname):
     try:
         removeObjJSON(bookname, 'favourites', favourite)
-    except:
+    except NameError:
         print("Book '" + bookname + "' was not found.")
         return False
     print("Book '" + bookname + "' deleted from favourites.")
