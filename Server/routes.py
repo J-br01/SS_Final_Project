@@ -27,31 +27,25 @@ def login_Post():
     validation = checkLogin(request.form['inputEmail'], request.form['inputPassword'])
     if validation:
         return redirect(url_for('home'))
-    flash(u'Wrong credentials', category="error")
-    return render_template('login.html', form=request.form)
+    else:
+        flash(u'Wrong credentials', category="error")
+        return render_template('login.html', form=request.form)
 
 
 @app.route('/book')
 def book():
     return render_template('Book.html')
 
-@app.route('/book', methods=['POST'])
+
+@app.route('/book/set-favourite', methods=['POST'])
 def addFavourite():
-    users = request.get_json()
-    user_id = users.get('username')
-    items = request.get_json()
-    item_id = items.get('title')
-    with open('favourites.json', 'r') as f:
-        favourites = json.load()
+    # Get input from button
+    isFavourite = (request.args.get('favourite') == 'true')
+    bookName = request.args.get('bookTitle')
+    bookAuthor = request.args.get('bookAuthor')
 
-    if not favourites.get(user_id):
-        favourites[user_id] = []
-
-    favourites.append(item_id)
-    with open('favourites.json', 'w') as f:
-        json.dump(favourites, f)
-        flash(u'Added to Favourites!', category="info")
-
+    print(request.args.get('favourite') )
+    return str(updateFavourite(isFavourite, bookName, bookAuthor))
 
 
 @app.route('/foreign')
@@ -62,6 +56,22 @@ def foreign():
 @app.route('/profile')
 def profile():
     return render_template('Profile.html')
+
+@app.route('/profile', methods=['POST'])
+def profile_Post():
+    if request.form['password'] == request.form['repeatPassword']:
+        createNewUser(request.form['name'], request.form['surname'], request.form['username'],
+                      request.form['inputEmail'], request.form['password'])
+
+        flash('User registered successfully!  Please log in.', category="usercreated")
+        return redirect(url_for('login'))
+    else:
+        flash('Password do not match')
+        return render_template('Signup.html', form=request.form)
+
+@app.route('/favourites')
+def favourites():
+    return render_template('Favourites.html')
 
 
 @app.route('/shopping-cart')
@@ -81,5 +91,6 @@ def signup_Post():
 
         flash('User registered successfully!  Please log in.', category="usercreated")
         return redirect(url_for('login'))
-    flash('Password do not match')
-    return render_template('Signup.html', form=request.form)
+    else:
+        flash('Password do not match')
+        return render_template('Signup.html', form=request.form)

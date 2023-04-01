@@ -172,7 +172,7 @@
                                 <p style="font-size:x-large;"><b>Your Favourites</b></p>
                                 <div class="row">
                                     <div class="col-3">
-                                         <div class="card text-center">
+                                         <div class="card btn text-center stretched-link" onclick="redirectToBook()">
                                              <img src="../static/images/paulo.png" class="card-img-top" alt="El Alquimista - Paulo Coelho">
                                              <div class="card-body">
                                                 <h5 class="card-title">Classics</h5>
@@ -213,6 +213,12 @@
 
 <!--Started for when a database is created-->
 <!--<script src="{{ url_for('static', filename='Profile.js') }}"></script>-->
+<script>
+    function redirectToBook() {
+        location.href = '/book';
+    }
+
+</script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </html>

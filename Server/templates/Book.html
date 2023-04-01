@@ -52,7 +52,7 @@
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <li><a class="dropdown-item" href=" ">Orders</a></li>
-                        <li><a class="dropdown-item" href=" ">Favourites</a></li>
+                        <li><a class="dropdown-item" href="/favourites">Favourites</a></li>
                         <li><a class="dropdown-item" href="{{ url_for('static', filename='Profile.html') }}">Settings</a></li>
                         <li><a class="dropdown-item" href=" ">Help</a></li>
                         <div class="dropdown-divider"></div>
@@ -84,10 +84,10 @@
             </div>
             <div class="col-4 ml-1 text-justify border-right">
                 <br>
-                <h3>El Alquimista - Spanish Version</h3>
-                <h5>Paulo Coelho</h5>
+                <h3 id="bookTitle">El Alquimista - Spanish Version</h3>
+                <h5 id="bookAuthor">Paulo Coelho</h5>
                 <h6>Paperback - 9780062511409 </h6>
-                <p>Combining magic, mysticism, wisdom, and wonder into an inspiring tale of self-discovery The Alchemist has become a modern classic, selling millions of copies around the world and transforming the lives of countless readers across generations. <span id="dots"><br>...</span><span id="more">
+                <p id="bookContent">Combining magic, mysticism, wisdom, and wonder into an inspiring tale of self-discovery The Alchemist has become a modern classic, selling millions of copies around the world and transforming the lives of countless readers across generations. <span id="dots"><br>...</span><span id="more">
                     <br>Paulo Coelho's masterpiece tells the mystical story of Santiago, an Andalusian shepherd boy who yearns to travel in search of a worldly treasure. His quest will lead him to riches far different—and far more satisfying—than he ever imagined. Santiago's journey teaches us about the essential wisdom of listening to our hearts, recognizing opportunity and learning to read the omens strewn along life's path, and, most importantly, following our dreams.
                     <br>Source: Goodreads.
                 </span></p>
@@ -135,7 +135,25 @@
                 <br>
                 <div class="row">
                     <div class="col">
-                        <button class="btn btn-outline-light btn-lg btn-block" style="color:purple; border-color: purple"> <svg width="27px" height="27px" viewBox="-0.48 -0.48 24.96 24.96" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#800080"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Interface / Heart_01"> <path id="Vector" d="M12 7.69431C10 2.99988 3 3.49988 3 9.49991C3 15.4999 12 20.5001 12 20.5001C12 20.5001 21 15.4999 21 9.49991C21 3.49988 14 2.99988 12 7.69431Z" stroke="#800080" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path> </g> </g></svg>  Save</button>
+                        <button id="saveButton" class="btn btn-outline-light btn-lg btn-block" style="color:purple; border-color: purple" onclick="saveButton()">
+                            <div class="row justify-content-center" >
+                                <svg id="saveButtonHeart" width="27px" height="27px" viewBox="-0.48 -0.48 24.96 24.96" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#800080">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                    <g id="SVGRepo_iconCarrier">
+                                        <g id="Interface / Heart_01">
+                                            <path id="Vector" d="M12 7.69431C10 2.99988 3 3.49988 3 9.49991C3 15.4999 12 20.5001 12 20.5001C12 20.5001 21 15.4999 21 9.49991C21 3.49988 14 2.99988 12 7.69431Z"
+                                                  stroke="#800080" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                                            </path>
+                                        </g>
+                                    </g>
+                                </svg>
+                                <div id="saveButtonCaption" style="margin-left: 3px">
+                                    Save
+                                </div>
+
+                            </div>
+                        </button>
                     </div>
                     <div class="col">
                         <button class="btn btn-outline-light btn-lg btn-block" style="color:purple; border-color:purple"><svg width="27px" height="27px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#800080"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Communication / Share_iOS_Export"> <path id="Vector" d="M9 6L12 3M12 3L15 6M12 3V13M7.00023 10C6.06835 10 5.60241 10 5.23486 10.1522C4.74481 10.3552 4.35523 10.7448 4.15224 11.2349C4 11.6024 4 12.0681 4 13V17.8C4 18.9201 4 19.4798 4.21799 19.9076C4.40973 20.2839 4.71547 20.5905 5.0918 20.7822C5.5192 21 6.07899 21 7.19691 21H16.8036C17.9215 21 18.4805 21 18.9079 20.7822C19.2842 20.5905 19.5905 20.2839 19.7822 19.9076C20 19.4802 20 18.921 20 17.8031V13C20 12.0681 19.9999 11.6024 19.8477 11.2349C19.6447 10.7448 19.2554 10.3552 18.7654 10.1522C18.3978 10 17.9319 10 17 10" stroke="#800080" stroke-width="1.704" stroke-linecap="round" stroke-linejoin="round"></path> </g> </g></svg>
@@ -186,6 +204,9 @@
     </footer>
 </body>
 <script>
+
+    var favourite = true;
+
     function readMore(){
         var dots = document.getElementById("dots");
         var more = document.getElementById("more");
@@ -202,8 +223,61 @@
         }
     }
 
+    function saveButton(){
+        var saveCaptionValue = "Save";
+        document.getElementById("saveButtonHeart").style.fill = "none";
+        if (favourite){
+            saveCaptionValue = "Saved!";
+            document.getElementById("saveButtonHeart").style.fill = "purple";
+        }
+        document.getElementById("saveButtonCaption").innerHTML = saveCaptionValue;
+        console.log(document.getElementById("saveButtonCaption").value)
+
+        let bookTitle = document.getElementById('bookTitle').innerText
+        let bookAuthor = document.getElementById('bookAuthor').innerText
+
+        updateFavourite(favourite, bookTitle, bookAuthor);
+
+        favourite = !favourite;
+    }
+
     function save_Favourites(){
 
+    }
+
+    function get() {
+        var server = window.location.href
+        var	http = new XMLHttpRequest();
+        var txt = "", x;
+        http.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                scoresJSON = JSON.parse(this.responseText);
+                for (x in scoresJSON['scores']){
+                    scores.push(scoresJSON['scores'][x].score.toString())
+                    previous_scores.push(scoresJSON['scores'][x].prev_score.toString())
+                    average_scores.push(scoresJSON['scores'][x].avg_score.toString())
+                }
+                replaceAll()
+            }
+        };
+        http.open("GET", server + "/getGlobalScores", true);
+        http.send();
+    }
+
+    function updateFavourite(value, title, author){
+        var server = window.location.href
+        var	http = new XMLHttpRequest();
+        var param = 'favourite=' + value;
+        param += '&bookTitle=' + title
+        param += '&bookAuthor=' + author
+
+        http.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                alert(http.responseText);
+            }
+        };
+        http.open("POST", server + "/set-favourite?" + param, true);
+        http.send();
     }
 </script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
