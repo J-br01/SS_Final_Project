@@ -8,8 +8,8 @@ secret_key = str(uuid.uuid4()).upper()
 secret_key = secret_key.replace("-", "")
 app.config['SECRET_KEY'] = secret_key[0:32]
 
-user = "admin@admin.com"
-password = "password"
+#user = "admin@admin.com"
+#password = "password"
 
 
 @app.route('/home')

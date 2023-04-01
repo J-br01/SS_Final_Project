@@ -1,7 +1,8 @@
 {
-  "favourites": [
-    {
-      "admin@admin.com" : ["alquimista"]
-    }
-  ]
+    "favourites": [
+        {
+            "name": "El Alquimista - Spanish Version",
+            "author": "Paulo Coelho"
+        }
+    ]
 }
