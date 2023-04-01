@@ -20,6 +20,8 @@ def readJSON(file):
     if os.path.exists(f_path):
         with open(file, 'r') as openfile:
             return json.load(openfile)
+    else:
+        return None
 
 def appendJSON(new_data, section, filename):
     path = '../static/json'
