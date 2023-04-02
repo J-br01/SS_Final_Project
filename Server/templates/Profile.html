@@ -99,7 +99,7 @@
                             <!--profile-->
                             <div class="tab-pane active" id="v-pills-profile" role="tabpanel" aria-labbelledby="v-pills-profile-tab" style="margin-top:30px;">
                                 <p style="font-size:x-large;"><b>Your Account - Profile</b></p>
-                                <form id="profileDetailsForm" name="profileDetailsForm">
+                                <form id="profileDetailsForm" class="align-items-center" action="/profile" method="POST" class="needs-validation" name="form">
                                     <div class="mb-3 ml-3">
                                         <img src="../static/images/portrait-g698366343_1280.jpg" alt="Picture" style="width: 10rem; height: 10rem;" class="img-fluid">
                                         <a class="btn btn-dark" style="background-color: #BEBEF0; opacity: 0.9; margin: 7.5rem 10px 0 10px">Update</a>
@@ -114,7 +114,7 @@
                                         <div class="col">
                                             <div class="mb-3">
                                                 <label for="surname" class="form-label" style="color: purple; font-size: 14px; margin-top: 20px">Surname</label>
-                                                <input type="text" class="form-control" id="surnmame" name="surname" value="Arribas" required/>
+                                                <input type="text" class="form-control" id="surname" name="surname" value="Arribas" required/>
                                             </div>
                                         </div>
                                     </div>
@@ -150,14 +150,15 @@
                                             </div>
                                         </div>
                                     </div>
-                                </form>
-                                <div class="row">
+                                    <div class="row">
                                     <div class="col">
                                         <br>
                                         <a class="btn btn-dark" style="background-color: #BEBEF0; opacity: 0.9;">Reset</a>
-                                        <a class="btn btn-dark" style="background-color: #BEBEF0; opacity: 0.9; margin: 0 2rem 0 0;">Save</a>
+                                        <button class="btn btn-dark" type="submit" style="background-color: #BEBEF0; opacity: 0.9; margin: 0 2rem 0 0;">Save</button>
                                     </div>
                                 </div>
+                                </form>
+
                             </div>
                         </div>
                         <!--Orders-->
@@ -209,4 +210,27 @@
 <!--<script src="{{ url_for('static', filename='Profile.js') }}"></script>-->
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script>
+
+    var userdata = ""
+    getUserData();
+
+    function getUserData() {
+        var server = window.location.href
+        var	http = new XMLHttpRequest();
+        var txt = "", x;
+        http.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                userdata = JSON.parse(this.responseText);
+
+                document.getElementById('name').value = userdata['data'][0].name
+                document.getElementById('surname').value = userdata['data'][0].surname
+                document.getElementById('email').value = userdata['data'][0].email
+                document.getElementById('password').value = userdata['data'][0].password
+            }
+        };
+        http.open("GET", server + "/profile-data", true);
+        http.send();
+    }
+</script>
 </html>

@@ -1,6 +1,7 @@
 from Server import app
 import os
 import json
+import csv
 
 userdata  = os.path.join(app.static_folder, 'json', 'userdata.json')
 booksdata = os.path.join(app.static_folder, 'json', 'booksdata.json')
@@ -64,18 +65,20 @@ def modifyJSON(new_data, section, value, filename):
 def checkCoincidenceJSON(object_name, section, value, filename):
     data = readJSON(filename)
     for entry in data[section]:
+        print(entry)
+        print(entry[value])
         if entry[value] == str(object_name):
             return True
     return False
 
-def removeObjJSON(object_name, section, filename):
-    new_data = {"favourites": []}
+def removeObjJSON(object_name, section, value, filename):
+    new_data = {section: []}
     data = readJSON(filename)
 
     for entry in data[section]:
-        if entry['name'] == str(object_name):
+        if entry[value] == str(object_name):
             continue
-        new_data['favourites'].append(entry)
+        new_data[section].append(entry)
 
     with open(filename, "w") as f:
         json.dump(new_data, f, indent=4)
@@ -84,6 +87,18 @@ def removeObjJSON(object_name, section, filename):
 def createNewUser(name, surname, username, email, password):
     user = createUser(name, surname, username, email, password)
     appendJSON(user, "userdata", userdata)
+
+def editUser(name, surname, email, password):
+    user = createUser(name, surname, email, email, password)
+    if checkCoincidenceJSON(email, 'userdata', 'email', userdata):
+        # remove old entity
+        removeObjJSON(email, 'userdata', 'email', userdata)
+        # add modified entity
+        appendJSON(user, 'userdata', userdata)
+        return "'User edited successfully!'"
+    else:
+        return "No user with such data."
+
 
 def compareField(file, section, attribute, value):
     file = readJSON(file)
@@ -121,9 +136,10 @@ def addFavourite(bookname, author):
 
 def removeFavourite(bookname):
     try:
-        removeObjJSON(bookname, 'favourites', favourite)
-    except NameError:
+        removeObjJSON(bookname, 'favourites', 'name', favourite)
+    except:
         print("Book '" + bookname + "' was not found.")
         return False
     print("Book '" + bookname + "' deleted from favourites.")
     return True
+

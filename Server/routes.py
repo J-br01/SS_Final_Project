@@ -1,15 +1,14 @@
-from flask import render_template, request, redirect, flash, url_for
+from flask import *
 from Server import app
-import json
-from Server.script import checkLogin, createNewUser
+from Server.script import *
 import uuid
 
 secret_key = str(uuid.uuid4()).upper()
 secret_key = secret_key.replace("-", "")
 app.config['SECRET_KEY'] = secret_key[0:32]
 
-#user = "admin@admin.com"
-#password = "password"
+user_email = None
+password = "password"
 
 
 @app.route('/home')
@@ -44,7 +43,7 @@ def addFavourite():
     bookName = request.args.get('bookTitle')
     bookAuthor = request.args.get('bookAuthor')
 
-    print(request.args.get('favourite') )
+    print(request.args.get('favourite'))
     return str(updateFavourite(isFavourite, bookName, bookAuthor))
 
 
@@ -57,17 +56,26 @@ def foreign():
 def profile():
     return render_template('Profile.html')
 
+
+@app.route('/profile/profile-data')
+def profile_data():
+    user = {"data": []}
+    user["data"].append(readJSON(userdata)["userdata"][0])
+    return user
+
+
 @app.route('/profile', methods=['POST'])
 def profile_Post():
-    if request.form['password'] == request.form['repeatPassword']:
-        createNewUser(request.form['name'], request.form['surname'], request.form['username'],
-                      request.form['inputEmail'], request.form['password'])
-
-        flash('User registered successfully!  Please log in.', category="usercreated")
-        return redirect(url_for('login'))
+    if request.form['repeatNew'] != "":
+        if request.form['newPassword'] == request.form['repeatNew']:
+            return editUser(request.form['name'], request.form['surname'],
+                            request.form['email'], request.form['password'])
+        else:
+            return 'Password do not match'
     else:
-        flash('Password do not match')
-        return render_template('Signup.html', form=request.form)
+        return editUser(request.form['name'], request.form['surname'],
+                 request.form['email'], request.form['password'])
+
 
 @app.route('/favourites')
 def favourites():
@@ -82,6 +90,7 @@ def shoppingCart():
 @app.route('/sign-up', methods=['GET'])
 def signUp():
     return render_template('Signup.html')
+
 
 @app.route('/sign-up', methods=['POST'])
 def signup_Post():
