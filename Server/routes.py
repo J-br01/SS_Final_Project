@@ -37,7 +37,7 @@ def book():
 
 
 @app.route('/book/set-favourite', methods=['POST'])
-def addFavourite():
+def addFavourites():
     # Get input from button
     isFavourite = (request.args.get('favourite') == 'true')
     bookName = request.args.get('bookTitle')
@@ -47,12 +47,12 @@ def addFavourite():
     return str(updateFavourite(isFavourite, bookName, bookAuthor))
 
 
-@app.route('/foreign')
+@app.route('/foreign', methods=['GET'])
 def foreign():
-    return render_template('Foreign.html')
+    return render_template('Book.html')
 
 
-@app.route('/profile')
+@app.route('/profile', methods=['GET'])
 def profile():
     return render_template('Profile.html')
 
@@ -77,9 +77,10 @@ def profile_Post():
                  request.form['email'], request.form['password'])
 
 
-@app.route('/favourites')
+@app.route('/favourites', methods=['GET'])
 def favourites():
     return render_template('Favourites.html')
+
 
 
 @app.route('/shopping-cart')

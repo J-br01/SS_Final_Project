@@ -79,9 +79,11 @@ def removeObjJSON(object_name, section, value, filename):
         if entry[value] == str(object_name):
             continue
         new_data[section].append(entry)
-
-    with open(filename, "w") as f:
-        json.dump(new_data, f, indent=4)
+    path = '../static/json'
+    f_path = os.path.join(path, filename)
+    if os.path.exists(f_path):
+        with open(filename, "w") as f:
+            json.dump(new_data, f, indent=4)
 
 
 def createNewUser(name, surname, username, email, password):
